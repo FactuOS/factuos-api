@@ -81,6 +81,10 @@ public function execute(...): Comprobante
 ### D. Control de Excepciones del Dominio
 No silencies excepciones con bloques `catch` vacíos. Si ocurre un fallo de negocio (ej. "Stock insuficiente para venta" o "Credenciales SOL inválidas"), lanza una excepción personalizada de dominio que extienda de `Exception` y deja que el manejador global de Laravel la capture y la devuelva como una respuesta JSON formateada.
 
+### E. Importaciones Limpias (Sin FQCN Inline)
+Queda prohibido utilizar nombres de clases completamente cualificados (FQCN) en línea dentro del código (ej. `\App\Domain\...\Modelo::class` o `\Illuminate\...\HasMany`).
+Todas las clases, modelos, interfaces y tipos de retorno deben **importarse explícitamente mediante sentencias `use` al inicio del archivo** para mantener un código limpio, legible y elegante.
+
 ---
 
 ## 💻 3. Plantillas de Referencia
